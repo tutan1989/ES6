@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //In ES6 create class //Object//Constructor
+        class Person {
+
+            //define private variable
+            #test;
+            //We can create only one constructor in ES6
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+                this.#test = 100;
+                console.log("Person object created");
+                console.log("Name::" + this.name);
+                console.log("Age::" + this.age);
+            }
+            //Define private method
+            #stuffPrivateMethod() {
+                console.log("Private-->");
+                return this.#test;
+            }
+
+            //Defining public method
+            getConcatValue() {
+                return this.concat();
+            }
+
+            concat() {
+                return this.name + " " + this.age;
+            }
+
+            //Defining previledge method
+            preMethod() {
+                console.log("previledged method here:-->");
+
+                return this.#stuffPrivateMethod();
+            }
+
+   
+        }
+        //Create instance of the class
+        let p = new Person("Angular11", 6);
+        console.log("Calling the public method-->" + p.getConcatValue());
+        //console.log("Calling the private method--->"+p.stuffPrivateMethod());
+        console.log("call the previledged method here -->" + p.preMethod());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
